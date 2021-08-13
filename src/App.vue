@@ -1,17 +1,34 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    APP3
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import { differenceInDays } from 'date-fns'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  async beforeCreate () {
+    const lastUpdatePlaces = this.$store.getters['places']['updated_at'] || new Date()
+    const diffDate = Math.abs(differenceInDays(new Date(lastUpdatePlaces), new Date()))
+
+    const notExistsPlaces = this.$store.getters['places']['locations'].length === 0
+
+    if (diffDate > 0 || notExistsPlaces) {
+      const { 
+        locations,
+        total,
+        wp_total
+      } = await this.$api.getPlaces().then(({ data }) => data);
+      this.$store.commit('places', {
+        updated_at: new Date(),
+        locations,
+        total,
+        wp_total
+      })
+    }
   }
 }
 </script>

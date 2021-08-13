@@ -1,0 +1,31 @@
+@each $key, $color in $all-colors {
+  .f-color-#{$key} {
+    color: $color
+  }
+}
+
+@mixin fontGotham ($fontSize, $lineHeight) {
+  font-family: $font-gotham !important;
+  font-size: $fontSize;
+  line-height: $lineHeight;
+}
+.f {
+  &-gotham { font-family: $font-gotham !important; }
+  &-bold { font-weight: bold !important; }
+  &-shadow { text-shadow: #000 0.1em 0.1em 0.2em; }
+}
+
+h1 { @include fontGotham(42px, 1.5) }
+h2 { @include fontGotham(34px, 1.5) }
+h3 { @include fontGotham(24px, 1.5) }
+h4 { @include fontGotham(20px, 1.5) }
+h5 { @include fontGotham(18px, 1.5) }
+
+.body-1 { @include fontGotham(18px, 1.5) }
+.body-2 { @include fontGotham(16px, 1.5) }
+
+@for $i from 0 through 50 {
+  .line-height-#{$i}{
+    line-height: #{$i}px !important;
+  }
+}

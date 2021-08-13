@@ -1,0 +1,21 @@
+$font-gotham: 'Gotham'!default;
+
+$dark-grey : #333333;
+$light-grey: #808080;
+$yellow    : #FFB612;
+$red       : #dc0a17;
+$green     : #2FC022;
+
+$all-colors: (
+  "dark-grey" : $dark-grey,
+  "light-grey": $light-grey,
+  "yellow"    : $yellow,
+  "red"       : $red,
+  "green"     : $green
+);
+
+:export {
+  @each $key, $color in $all-colors {
+    #{unquote($key)}: $color;
+  };
+}
