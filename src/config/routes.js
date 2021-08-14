@@ -1,8 +1,7 @@
 export default [
   {
     path: '/',
-    name: 'Home',
-    redirect: '/',
+    name: 'App',
     component: () => import('@/App.vue')
   }
 ]
