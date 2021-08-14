@@ -9,13 +9,8 @@
   font-size: $fontSize;
   line-height: $lineHeight;
 }
-.f {
-  &-gotham { font-family: $font-gotham !important; }
-  &-bold { font-weight: bold !important; }
-  &-shadow { text-shadow: #000 0.1em 0.1em 0.2em; }
-}
 
-h1 { @include fontGotham(42px, 1.5) }
+h1 { @include fontGotham(42px, 1.2) }
 h2 { @include fontGotham(34px, 1.5) }
 h3 { @include fontGotham(24px, 1.5) }
 h4 { @include fontGotham(20px, 1.5) }
