@@ -1,0 +1,15 @@
+.img-fill {
+    max-height: 100%;
+    object-fit: contain;
+    max-width: 100%;
+}
+img.img-fill-width {
+    @extend .img-fill; 
+    width: 100%;
+    height: auto;
+}
+img.img-fill-height {
+    @extend .img-fill; 
+    height: 100%;
+    width: auto;
+}

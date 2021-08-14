@@ -1,5 +1,7 @@
 $font-gotham: 'Gotham'!default;
 
+$dark      : #000000;
+$light     : #ffffff;
 $dark-grey : #333333;
 $light-grey: #808080;
 $yellow    : #FFB612;
@@ -7,6 +9,8 @@ $red       : #dc0a17;
 $green     : #2FC022;
 
 $all-colors: (
+  "dark"      : $dark,
+  "light"     : $light,
   "dark-grey" : $dark-grey,
   "light-grey": $light-grey,
   "yellow"    : $yellow,

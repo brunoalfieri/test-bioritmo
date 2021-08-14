@@ -1,7 +1,7 @@
 export default [
   {
     path: '/',
-    name: 'App',
-    component: () => import('@/App.vue')
+    name: 'Home',
+    component: () => import('@/views/Home.vue')
   }
 ]

@@ -1,15 +1,24 @@
 <template>
-  <div id="app">
-    APP3
-  </div>
+  <b-container id="app" fluid>
+    <AppHeader/>
+    <router-view/>
+    <AppFooter/>
+  </b-container>
 </template>
 
 <script>
 
 import { differenceInDays } from 'date-fns'
 
+import AppHeader from '@/components/header.vue'
+import AppFooter from '@/components/footer.vue'
+
 export default {
   name: 'App',
+  components: {
+    AppHeader,
+    AppFooter
+  },
   async beforeCreate () {
     const lastUpdatePlaces = this.$store.getters['places']['updated_at'] || new Date()
     const diffDate = Math.abs(differenceInDays(new Date(lastUpdatePlaces), new Date()))
@@ -32,14 +41,11 @@ export default {
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+ #app {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  font-family: $font-gotham;
+ }
 </style>
