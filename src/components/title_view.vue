@@ -1,6 +1,6 @@
 <template>
-  <div class="title-view position-relative">
-    <h1 v-html="title" class="f-color-dark-grey text-uppercase f-bold line-height-50"/>
+  <div class="title-view position-relative mb-5">
+    <h1 v-html="title" class="f-color-dark-grey text-uppercase m-0 f-bold line-height-50"/>
     <div class="title-view__tag"/>
   </div>
 </template>
