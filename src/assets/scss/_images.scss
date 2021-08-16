@@ -1,15 +1,12 @@
-.img-fill {
-    max-height: 100%;
-    object-fit: contain;
-    max-width: 100%;
-}
 img.img-fill-width {
-    @extend .img-fill; 
+    object-fit: cover;
     width: 100%;
     height: auto;
+    max-height: 100%;
 }
 img.img-fill-height {
-    @extend .img-fill; 
+    object-fit: cover;
     height: 100%;
     width: auto;
+    max-width: 100%;
 }

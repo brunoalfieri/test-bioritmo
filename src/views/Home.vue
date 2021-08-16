@@ -19,6 +19,7 @@
         :totalFiltered="totalFilteredByUser"
         @submitFilter="submitFilter"
         @resetFilter="resetFilter"/>
+        <AppLegend/>
       </b-col>
     </b-row>
   </b-container>
@@ -28,12 +29,14 @@
 
 import AppTitleView from '@/components/title_view.vue'
 import AppCardFilter from '@/components/cards/filter/Main.vue'
+import AppLegend from '@/components/legend.vue'
 
 
 export default {
   components: {
     AppTitleView,
-    AppCardFilter
+    AppCardFilter,
+    AppLegend
   },
   computed: {
     totalFilteredByUser () {
