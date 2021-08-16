@@ -12,6 +12,7 @@
           medidas de segurança que estamos seguindo.
         </p>
       </b-col>
+      
       <b-col cols=12>
         <AppCardFilter 
         saveInTimeLocationsOpen="saveUserSelectTime"
@@ -20,6 +21,12 @@
         @submitFilter="submitFilter"
         @resetFilter="resetFilter"/>
         <AppLegend/>
+        <b-row class="g-0 content-places mt-4">
+          <b-col cols=4 v-for="place in listLocationsFiltered"
+          :key="place.id">
+            <AppCardPlace :place="place"/>
+          </b-col>
+        </b-row>
       </b-col>
     </b-row>
   </b-container>
@@ -30,13 +37,15 @@
 import AppTitleView from '@/components/title_view.vue'
 import AppCardFilter from '@/components/cards/filter/Main.vue'
 import AppLegend from '@/components/legend.vue'
+import AppCardPlace from '@/components/cards/Place.vue'
 
 
 export default {
   components: {
     AppTitleView,
     AppCardFilter,
-    AppLegend
+    AppLegend,
+    AppCardPlace
   },
   computed: {
     totalFilteredByUser () {
@@ -47,6 +56,9 @@ export default {
     },
     userCheckedLocationClosed () {
       return this.$store.getters['saveUserFilterLocationsClose']
+    },
+    listLocationsFiltered () {
+      return this.$store.getters['placesFilted'].locationsFilted
     }
   },
   methods: {
@@ -92,6 +104,20 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss">
+  .content-places {
+    > * {
+      margin: .75rem 0;
+      height: 530px;
+    }
+    > :nth-child(3n-2) {
+      padding-right: .75rem;
+    }
+    > :nth-child(3n-1) {
+      padding: 0 .75rem;
+    }
+    > :nth-child(3n) {
+      padding-left: .75rem;
+    }
+  }
 </style>
