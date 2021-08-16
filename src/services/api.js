@@ -4,7 +4,7 @@ export default {
   getPlaces () {
     return new Middleware()
       .method('GET')
-      .append('https://test-frontend-developer.s3.amazonaws.com/data/locations.json', 'external')
+      .append(process.env.VUE_API_PLACES, 'external')
       .build()
   }
 }

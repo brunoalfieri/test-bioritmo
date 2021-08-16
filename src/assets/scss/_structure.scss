@@ -8,6 +8,7 @@
   font-family: $font-gotham !important;
   font-size: $fontSize;
   line-height: $lineHeight;
+  margin: 0;
 }
 
 h1 { @include fontGotham(42px, 1.2) }
@@ -18,6 +19,10 @@ h5 { @include fontGotham(18px, 1.5) }
 
 .body-1 { @include fontGotham(18px, 1.5) }
 .body-2 { @include fontGotham(16px, 1.5) }
+
+hr {
+  background-color: $light-grey;
+}
 
 @for $i from 0 through 50 {
   .line-height-#{$i}{
