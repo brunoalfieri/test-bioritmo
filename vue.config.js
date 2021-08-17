@@ -1,7 +1,6 @@
 module.exports = {
   devServer: {
-    https: true,
-    hotOnly: false,
+    http2: true,
   },
   css: {
     loaderOptions: {

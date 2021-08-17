@@ -1,0 +1,10 @@
+FROM node:lts-alpine
+
+ENV LOCAL /app
+
+RUN mkdir -p ${LOCAL}
+WORKDIR ${LOCAL}
+COPY package*.json ${LOCAL}
+
+RUN npm install -g @vue/cli --silent
+RUN npm install

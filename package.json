@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve --verbosity silent",
-    "docker-serve": "docker-compose up development",
+    "docker-dev": "docker-compose up dev",
     "build": "vue-cli-service build",
-    "docker-build": "docker-compose up production",
+    "docker-build": "docker-compose up prd",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

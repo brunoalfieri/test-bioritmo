@@ -1,26 +1,23 @@
 version: '3.7'
 
 services:
-  development:
+  dev:
     build: 
       context: .
-      dockerfile: Dockerfile.development
-    working_dir: /usr/src/app
+      dockerfile: Dockerfile.dev
+    working_dir: /app
     volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
+      - .:/app
+      - /app/node_modules
     ports:
       - 8080:8080
     command: [ "npm", "run", "serve" ]
-  production:
+  prd:
     build: 
       context: .
-      dockerfile: Dockerfile.production
-    working_dir: /usr/src/app
-    env_file: 
-      - .env.production.local
+      dockerfile: Dockerfile.prd
+    working_dir: /app
     volumes:
-      - .:/usr/src/app
+      - .:/app
     ports:
       - 3000:3000
-    command: [ "node", "server.js" ]

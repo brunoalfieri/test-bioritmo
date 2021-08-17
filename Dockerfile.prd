@@ -1,0 +1,18 @@
+FROM node:lts-alpine
+
+ENV DOCKER_LOCAL_APP /app
+RUN mkdir -p ${DOCKER_LOCAL_APP}
+WORKDIR ${DOCKER_LOCAL_APP}
+
+COPY package*.json ${DOCKER_LOCAL_APP}
+RUN npm install -g @vue/cli --silent
+RUN npm install --silent
+
+COPY . ${DOCKER_LOCAL_APP}
+RUN npm run build
+
+EXPOSE ${PORT}
+
+RUN rm -rf ./src ./node_moduleshe
+
+CMD ['node' 'server.js']
