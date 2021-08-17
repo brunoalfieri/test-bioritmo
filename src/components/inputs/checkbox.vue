@@ -1,5 +1,5 @@
 <template>
-  <b-form-checkbox :value="value" class="input-checkbox">
+  <b-form-checkbox v-model="valueInput" :value="value" class="input-checkbox">
     <h5 class="body-2 m-0">{{ text }}</h5>
   </b-form-checkbox>
 </template>
@@ -13,8 +13,22 @@ export default {
     text: {
       type: String,
       required: true
+    },
+    saveIn: {
+      type: String,
+      required: true
     }
   },
+  computed: {
+    valueInput: {
+      get () {
+        return this.$store.getters[this.saveIn]
+      },
+      set (valueInput) {
+        this.$store.commit(this.saveIn, valueInput === true)
+      }
+    }
+  }
 }
 </script>
 

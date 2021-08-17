@@ -1,18 +1,19 @@
 FROM node:lts-alpine
 
-ENV DOCKER_LOCAL_APP /app
-RUN mkdir -p ${DOCKER_LOCAL_APP}
-WORKDIR ${DOCKER_LOCAL_APP}
+ENV LOCAL /app
+RUN mkdir -p ${LOCAL}
+WORKDIR ${LOCAL}
 
-COPY package*.json ${DOCKER_LOCAL_APP}
+COPY package*.json ${LOCAL}/
 RUN npm install -g @vue/cli --silent
 RUN npm install --silent
 
-COPY . ${DOCKER_LOCAL_APP}
+COPY . ${LOCAL}/
 RUN npm run build
 
-EXPOSE ${PORT}
+RUN rm -rf /node_modules /src /public .env*
+RUN npm install express compression serve-static connect-history-api-fallback
 
-RUN rm -rf ./src ./node_moduleshe
+EXPOSE 5000
 
-CMD ['node' 'server.js']
+CMD [ "npm", "start" ]
