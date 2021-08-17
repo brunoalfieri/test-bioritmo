@@ -1,8 +1,4 @@
 module.exports = {
-  devServer: {
-    https: true,
-    hotOnly: false,
-  },
   css: {
     loaderOptions: {
       // pass options to sass-loader

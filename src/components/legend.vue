@@ -1,8 +1,8 @@
 <template>
-  <b-row class="legend-layout g-0 mt-5 p-3">
+  <b-row class="legend-layout g-0 mt-5">
     <b-col v-for="legend in legends" 
     :key="legend.id"
-    class="legend-layout__container d-flex flex-column align-items-center">
+    class="legend-layout__container d-flex m-3 flex-column align-items-center">
       <h5 class="f-black text-center">
         {{ legend.title }}
       </h5>

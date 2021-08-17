@@ -1,0 +1,32 @@
+$grid-breakpoints: ( 
+    xs: 0, 
+    sm: 576px, 
+    md: 768px, 
+    lg: 992px, 
+    xl: 1360px, 
+    xxl: 1440px
+);
+$container-max-widths: ( 
+    xs: 100%, 
+    sm: 540px, 
+    md: 720px, 
+    lg: 960px,
+    xl: 1140px, 
+    xxl: 1280px 
+);
+
+$grid-xs: map_get($grid-breakpoints, xs);
+$grid-sm: map_get($grid-breakpoints, sm);
+$grid-md: map_get($grid-breakpoints, md);
+$grid-lg: map_get($grid-breakpoints, lg);
+$grid-xl: map_get($grid-breakpoints, xl);
+$grid-xxl: map_get($grid-breakpoints, xxl);
+
+:export {
+    xs: $grid-xs;
+    sm: $grid-sm;
+    md: $grid-md;
+    lg: $grid-lg;
+    xl: $grid-xl;
+    xxl: $grid-xxl;
+}

@@ -3,6 +3,7 @@ import App from './App.vue'
 
 //* Plugins
 import './plugins/bootstrap.js'
+import './plugins/vue_number.js'
 import store from './plugins/vuex.js'
 import router from './plugins/vue_router'
 

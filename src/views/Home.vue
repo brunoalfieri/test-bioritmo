@@ -21,12 +21,16 @@
         @submitFilter="submitFilter"
         @resetFilter="resetFilter"/>
         <AppLegend/>
-        <b-row class="g-0 content-places mt-4">
-          <b-col cols=4 v-for="place in listLocationsFiltered"
-          :key="place.id">
-            <AppCardPlace :place="place"/>
-          </b-col>
-        </b-row>
+        <transition-group
+        tag="div"
+        class="g-0 row content-places mt-4"
+        name="slide-fade">
+          <AppCardPlace
+          v-for="place in listLocationsFiltered"
+          class="col-12 col-md-6 col-lg-4"
+          :key="place.id"
+          :place="place"/>
+        </transition-group>
       </b-col>
     </b-row>
   </b-container>
@@ -88,6 +92,7 @@ export default {
     },
     resetFilter () {
       this.$store.commit('placesFilted', {
+        locationsFilted: [],
         userSelectTime: undefined,
         userFilterLocationsClose: false,
         total: 0
@@ -106,18 +111,34 @@ export default {
 
 <style lang="scss">
   .content-places {
-    > * {
-      margin: .75rem 0;
-      height: 530px;
+    @media screen and (min-width: $grid-md) {
+      > :nth-child(2n-1) {
+        padding: 0 .75rem 0 0;
+      }
+      > :nth-child(2n) {
+        padding: 0 .75rem;
+      }
     }
-    > :nth-child(3n-2) {
-      padding-right: .75rem;
+    @media screen and (min-width: $grid-lg) {
+      > :nth-child(3n-2) {
+        padding: 0 .75rem 0 0;
+      }
+      > :nth-child(3n-1) {
+        padding: 0 .75rem;
+      }
+      > :nth-child(3n) {
+        padding: 0 0 0 .75rem;
+      }
     }
-    > :nth-child(3n-1) {
-      padding: 0 .75rem;
-    }
-    > :nth-child(3n) {
-      padding-left: .75rem;
-    }
+  }
+  .slide-fade-enter-active {
+    transition: all .6s ease-in-out;
+  }
+  .slide-fade-leave-active {
+    transition: all .6s ease-in-out;
+  }
+  .slide-fade-enter, .slide-fade-leave-to {
+    transform: translateX(10px);
+    opacity: 0;
   }
 </style>
