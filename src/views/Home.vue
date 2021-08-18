@@ -53,7 +53,7 @@ export default {
   },
   computed: {
     totalFilteredByUser () {
-      return this.$store.getters['placesFilted'].total
+      return this.$store.getters['placesFilted']?.total || 0
     },
     userSelectedTime () {
       return this.$store.getters['saveUserSelectTime']
@@ -62,7 +62,7 @@ export default {
       return this.$store.getters['saveUserFilterLocationsClose']
     },
     listLocationsFiltered () {
-      return this.$store.getters['placesFilted'].locationsFilted
+      return this.$store.getters['placesFilted']?.locationsFilted || []
     }
   },
   methods: {
@@ -76,7 +76,7 @@ export default {
       const locationsFilted = locations.filter(location => {
         if (location.schedules === undefined) return false
         const resultWithIntervalOneHour = location.schedules.some(rule => {
-        
+
           const intervalMinAndMax = rule.hour.match(/[0-9][0-9]h/g)
           if (intervalMinAndMax === null || intervalMinAndMax.length === 0) return false
 
@@ -111,7 +111,7 @@ export default {
       })
     },
     valueHasBetweenWithTolerance (value, minValue, maxValue, tolerance) {
-      return value + tolerance >= minValue && value + tolerance <= maxValue
+      return value - tolerance >= minValue && value + tolerance <= maxValue
     }
   }
 }

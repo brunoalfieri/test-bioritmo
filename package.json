@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "docker-dev": "docker-compose up dev",
     "build": "vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit",
+    "lint": "vue-cli-service lint",
     "docker-build": "docker-compose up prd",
-    "start": "node server.js",
-    "lint": "vue-cli-service lint"
+    "docker-dev": "docker-compose up dev",
+    "start": "node server.js"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -22,6 +23,7 @@
     "date-fns": "^2.23.0",
     "express": "^4.17.1",
     "express-sslify": "^1.2.0",
+    "faker": "^5.5.3",
     "serve-static": "^1.14.1",
     "vue": "^2.6.14",
     "vue-number-animation": "^1.1.1",
@@ -32,7 +34,9 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-unit-jest": "^4.5.13",
     "@vue/cli-service": "~4.5.0",
+    "@vue/test-utils": "^1.0.3",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
@@ -52,7 +56,18 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {}
+    "rules": {},
+    "overrides": [
+      {
+        "files": [
+          "**/__tests__/*.{j,t}s?(x)",
+          "**/tests/unit/**/*.spec.{j,t}s?(x)"
+        ],
+        "env": {
+          "jest": true
+        }
+      }
+    ]
   },
   "browserslist": [
     "> 1%",
