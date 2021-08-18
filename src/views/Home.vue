@@ -1,8 +1,8 @@
 <template>
-  <b-container class="py-5">
+  <b-container tag="main" class="py-5">
     <b-row>
       <b-col cols=12>
-        <AppTitleView title="REABERTURA <br> SMART fit"/>
+        <AppTitleView title="REABERTURA SMART FIT"/>
       </b-col>
       <b-col cols=12>
         <p class="mt-3 f-book">

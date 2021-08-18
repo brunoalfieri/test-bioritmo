@@ -19,6 +19,7 @@ export default {
 <style lang="scss">
   .title-view {
     height: max-content;
+    max-width: 350px;
     &__tag {
       position: absolute;
       top: calc(100% + 1rem);

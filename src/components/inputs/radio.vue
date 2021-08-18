@@ -1,5 +1,5 @@
 <template>
-  <b-form-radio :value="value" class="input-radio">
+  <b-form-radio :id="id" :value="value" class="input-radio">
     {{ text }}
   </b-form-radio>
 </template>
@@ -7,6 +7,10 @@
 <script>
 export default {
   props: {
+    id: {
+      type: String,
+      required: true
+    },
     value: {
       required: true
     },

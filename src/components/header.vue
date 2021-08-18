@@ -1,6 +1,6 @@
 <template>
   <b-row tag="header" class="py-4 justify-content-center">
-    <b-img src="/images/logo.svg" class="img-fill-height"/>
+    <b-img src="/images/logo.svg" alt="logo da empresa" class="img-fill-height"/>
   </b-row>
 </template>
 

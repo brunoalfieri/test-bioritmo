@@ -1,5 +1,5 @@
 <template>
-  <b-form-checkbox v-model="valueInput" :value="value" class="input-checkbox">
+  <b-form-checkbox :id="id" v-model="valueInput" :value="value" class="input-checkbox">
     <h5 class="body-2 m-0">{{ text }}</h5>
   </b-form-checkbox>
 </template>
@@ -7,6 +7,10 @@
 <script>
 export default {
   props: {
+    id: {
+      type: String,
+      required: true
+    },
     value: {
       required: true
     },

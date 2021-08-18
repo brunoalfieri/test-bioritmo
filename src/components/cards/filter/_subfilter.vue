@@ -2,14 +2,15 @@
   <b-row class="g-0 my-2">
     <b-col cols=12 md=6
     class="d-flex my-1 justify-content-md-start  justify-content-center">
-      <AppInputCheckbox :saveIn="saveIn" :value="true" text="Exibir unidades fechadas"/>
+      <AppInputCheckbox id="filtered_close" :saveIn="saveIn" :value="true" text="Exibir unidades fechadas"/>
     </b-col>
     <b-col cols=12 md=6
     class="d-flex my-1 justify-content-md-end justify-content-center">
       <h5 class="body-2 m-0 d-flex align-items-center">
         Resultados encontrados: 
         <number
-        ref="number1"
+        id="counter"
+        ref="counter"
         class="h4 f-bold m-0 ms-2"
         :from="totalFiltered"
         :to="totalFiltered"
@@ -59,7 +60,7 @@ export default {
   },
   watch: {
     totalFiltered () {
-      this.$refs.number1.play()
+      this.$refs.counter.play()
     }
   }
 }
