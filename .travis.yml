@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+  - 14
+addons:
+  apt:
+    packages:
+    - libgconf-2-4
+cache:
+  directories:
+    - ~/.npm
+    - ~/.cache
+  override:
+    - npm ci
+    # - npm run cy:verify
+script: 
+  # - npx pm2 start server.js
+  # - npx cypress run
+  - npm run test:unit

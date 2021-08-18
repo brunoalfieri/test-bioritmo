@@ -2,14 +2,18 @@
 
 describe('Interactive user with form', () => {
   it('Not filter when user not select time interval', () => {
-    cy.visit('/')
+    cy.visit('/', {
+      failOnStatusCode: false
+    })
     cy.get('main').find("form button[type=submit]").click({ force: true })
     cy.get('main').find("#counter").invoke('text').then(counterNumber => {
       expect(counterNumber).equal('0')
     })
   })
   it('filter when user select time interval', () => {
-    cy.visit('/')
+    cy.visit('/', {
+      failOnStatusCode: false
+    })
     cy.get('main').find("form input#morning").check({ force: true })
     cy.get('main').find("form button[type=submit]").click({ force: true })
     cy.get('main').find("#counter").invoke('text').then(counterNumber => {
@@ -17,7 +21,9 @@ describe('Interactive user with form', () => {
     })
   })
   it('Verify clear button is functional', () => {
-    cy.visit('/')
+    cy.visit('/', {
+      failOnStatusCode: false
+    })
     cy.get('main').find("form input#morning").check({ force: true })
     cy.get('main').find("form input#filtered_close").check({ force: true })
     cy.get('main').find("form button[type=reset]").click({ force: true })
