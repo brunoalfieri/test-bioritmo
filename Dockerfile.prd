@@ -1,6 +1,7 @@
 FROM node:lts-alpine
 
 ENV LOCAL /app
+ENV VUE_APP_API_PLACES https://test-frontend-developer.s3.amazonaws.com/data/locations.json
 RUN mkdir -p ${LOCAL}
 WORKDIR ${LOCAL}
 
@@ -14,6 +15,6 @@ RUN npm run build
 RUN rm -rf /node_modules /src /public
 RUN npm install express compression serve-static connect-history-api-fallback
 
-EXPOSE 5000
+EXPOSE $PORT
 
 CMD [ "npm", "start" ]

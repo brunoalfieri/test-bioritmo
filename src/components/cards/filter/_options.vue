@@ -4,7 +4,7 @@
     :required="true">
       <b-row v-for="option in options" 
       :key="option.text" 
-      class="align-items-center">
+      class="g-0 align-items-center">
         <b-col cols=12 class="d-flex justify-content-between">
           <AppInputRadio
           :id="option.id"

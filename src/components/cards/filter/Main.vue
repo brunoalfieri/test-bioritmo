@@ -2,7 +2,7 @@
   <b-form tag="section" 
   @submit.prevent="$emit('submitFilter')"
   @reset="$emit('resetFilter')"
-  class="card-filter p-3 mr-3">
+  class="card-filter p-3">
     <AppTitle/>
     <AppOptions :saveIn="saveInTimeLocationsOpen"/>
     <AppSubfilter :saveIn="saveInFilterLocationsClose" :totalFiltered="totalFiltered"/>
