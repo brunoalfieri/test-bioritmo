@@ -44,6 +44,8 @@ export default {
 <style lang="scss">
  #app {
   min-height: 100vh;
+  width: 100vw;
+  margin: 0;
   display: grid;
   grid-template-rows: auto 1fr auto;
   font-family: $font-gotham;

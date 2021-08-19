@@ -9,7 +9,7 @@
       <b-row class="g-0 legend-layout__container__images mt-3">
         <b-col v-for="image in legend.images"
         :key="image.src"
-        class="d-flex flex-column align-items-center mx-2">
+        class="d-flex flex-column align-items-center">
           <b-img :src="image.src"/>
           <h5 class="text-center body-2">Obrigatório</h5>
         </b-col>
@@ -96,6 +96,18 @@ export default {
     &__container {
       &__images {
         width: max-content;
+        > * {
+          margin-right: .25rem;
+          margin-left: .25rem;
+        }
+        > :first-child {
+          margin-left: 0;
+          margin-right: .25rem;
+        }
+        > :last-child {
+          margin-left: .25rem;
+          margin-right: 0;
+        }
         img {
           height: 70px;
           width: 70px;
