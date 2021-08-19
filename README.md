@@ -1,4 +1,4 @@
-# Desafio #3 [BIO RITMO]
+# Desafio #3 [BIO RITMO](https://github.com/bioritmo/front-end-code-challenge-smartsite)
 ##### Pontos propostos obrigatórios:
 - [x] Layout responsivo [ mobile, tablet, desktop ]
 - [x] Consumir JSON a partir de uma url
